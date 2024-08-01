@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="h-screen mobile:h-125vh text-2xl bg-light-grayish-cyan font-space-mono font-bold flex justify-evenly items-center flex-col ">
+  <div><img src="images/logo.svg" alt=""></div>
+  <div class="lg:w-2/3 lg:h-3/4 lg:p-6 md:w-5/6 sm:h-2/3 w-full h-1/2 min-w-72 min-h-80 mobile:h-screen mobile:w-full bg-white rounded-xl shadow-xl flex mobile:flex-col overflow-hidden p-4 gap-4">
+    <div class="mobile:w-full mobile:h-2/3 w-1/2 h-full rounded-xl flex flex-col justify-between items-center px-1 md:px-4 mobile:px-5 py-1">
+
+      <div class="flex flex-col justify-center items-center gap-2 h-1/4 w-full">
+        <label class="text-sm text-gray-500 w-full">Bill</label>
+        <div class="flex items-center bg-gray-200 w-full h-1/2 rounded">
+          <div class="p-2 absolute"><img src="images/icon-dollar.svg" alt=""></div>
+          <input id="bill" placeholder="0" class="w-full h-full bg-transparent text-right text-very-dark-cyan px-3 rounded focus:outline-strong-cyan placeholder:text-right" type="text">
+        </div>
+      </div>
+      
+      <div class="h-1/2 w-full flex flex-col sm:py-5 py-2">
+        <label class="text-sm text-gray-500 h-1/5 flex items-center">Select Tip %</label>
+        <div class="h-4/5 grid grid-rows-2 grid-cols-3 sm:gap-4 gap-2 mobile:grid-rows-3 mobile:grid-cols-2 py-1">
+          <div class="tip-btn bg-very-dark-cyan rounded text-white sm:text-2xl text-lg flex items-center justify-center cursor-pointer" data-tip="5">5%</div>
+          <div class="tip-btn bg-very-dark-cyan rounded text-white sm:text-2xl text-lg flex items-center justify-center cursor-pointer" data-tip="10">10%</div>
+          <div class="tip-btn bg-very-dark-cyan rounded text-white sm:text-2xl text-lg flex items-center justify-center cursor-pointer" data-tip="15">15%</div>
+          <div class="tip-btn bg-very-dark-cyan rounded text-white sm:text-2xl text-lg flex items-center justify-center cursor-pointer" data-tip="25">25%</div>
+          <div class="tip-btn bg-very-dark-cyan rounded text-white sm:text-2xl text-lg flex items-center justify-center cursor-pointer" data-tip="50">50%</div>
+          <div class="flex items-center justify-center rounded">
+            <input id="custom-tip-input" placeholder="Custom" type="text" class="bg-gray-200 w-full h-full text-right px-2 rounded placeholder:text-center placeholder:text-very-dark-cyan  sm:placeholder:text-2xl placeholder:text-sm text-very-dark-cyan text-lg sm:text-2xl focus:outline-strong-cyan " />
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="flex flex-col gap-2 justify-center items-center h-1/4 w-full ">
+
+        <div class="flex justify-between w-full">
+          <label class="text-sm text-gray-500 ">Number of People</label>
+          <p id="people-error" class="text-sm text-red-500"></p>
+        </div>
+
+        <div class="flex items-center bg-gray-200 w-full h-1/2 rounded ">
+          <div class="p-2 absolute"><img src="images/icon-person.svg" alt=""></div>
+          <input placeholder="0" id="people-input" class="w-full h-full bg-transparent text-right text-very-dark-cyanpx-3 rounded focus:outline-strong-cyan px-3 placeholder:text-right " type="text">
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="mobile:w-full mobile:h-1/3 mobile:justify-evenly mobile:gap-4 w-1/2 h-full bg-very-dark-cyan rounded-xl flex flex-col justify-between items-center md:px-9 sm:px-5 px-3 mobile:px-5 pb-4">
+
+      <div class="h-1/2 w-full flex flex-col justify-end items-center gap-3">
+
+        <div class="w-full h-1/3 flex justify-between items-center">
+
+          <div class="h-full w-1/2 flex flex-col justify-center">
+            <h2 class="sm:text-lg text-sm text-very-light-grayish-cyan">Tip Amount</h2>
+            <p class="text-sm text-light-grayish-cyan">/ person</p>
+          </div>
+
+          <div id="tip-amount" class="h-full w-1/2 flex items-center justify-end text-strong-cyan md:text-4xl sm:text-3xl text-2xl">
+            $<span>0.00</span>
+          </div>
+
+        </div>
+
+        <div class="w-full h-1/3 flex">
+          <div class="h-full w-1/2 flex flex-col justify-center">
+            <h2 class="sm:text-lg text-sm text-very-light-grayish-cyan">Total</h2>
+            <p class="text-sm text-light-grayish-cyan">/ person</p>
+          </div>
+
+          <div id="total" class="h-full w-1/2 flex items-center justify-end text-strong-cyan md:text-4xl sm:text-3xl text-2xl">
+            $<span>0.00</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="h-1/4 w-full flex justify-center items-center">
+        <button id="reset-button" class="bg-light-grayish-cyan w-full sm:h-2/5 h-1/2 mobile:h-90% mobile:text-lg rounded sm:text-lg text-sm text-very-dark-cyan">RESET</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-sm font-sans text-center text-gray-600 w-full mobile:h-10vh ">
+    Challenge by  <a class="bg-black text-white rounded py-1 px-2" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> . <span class="hidden mobile:block"> <br class="inline"> </span>
+    Coded by <a class="bg-blue-700 px-2 py-1 text-white rounded" href="">Yoranos Tefera</a> .
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
